@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import { connect } from 'react-redux';
-import { increment, decrement } from './ducks/counter';
+import { increment, decrement, undo, redo } from './ducks/counter';
 
 class App extends Component {
   render() {
-    let { currentValue, increment, decrement } = this.props;
+    let { currentValue, increment, decrement, undo, redo } = this.props;
 
     return (
       <div className="app">
@@ -39,15 +39,15 @@ class App extends Component {
             <br />
             <button
               className="counter__button undo"
-              disabled={ true }
-              onClick={ () => null }
+              disabled={ false }
+              onClick={ () => undo() }
             >
               Undo
             </button>
             <button
               className="counter__button redo"
-              disabled={ true }
-              onClick={ () => null }
+              disabled={ false }
+              onClick={ () => redo() }
             >
               Redo
             </button>
@@ -67,7 +67,7 @@ function mapStateToProps( state ) {
   return state;
 }
 
-export default connect( mapStateToProps, { increment, decrement } )( App );
+export default connect( mapStateToProps, { increment, decrement, undo, redo } )( App );
 
 
 /*

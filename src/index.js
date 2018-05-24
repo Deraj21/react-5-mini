@@ -13,8 +13,6 @@ ReactDOM.render(
   </Provider>
   , document.getElementById( 'root' ));
 
-
-/*
-Open src/index.js.\
-Add a store prop that equals our imported store.
+/**
+ * 
  */
